@@ -24,8 +24,8 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Equals_Zero) {
     num.setIm(im1);
 
     ComplexNumber cresult = num - num;
-    ASSERT_TRUE(cresult.getRe() == 0.0, true);
-    ASSERT_TRUE(cresult.getIm() == 0.0, true);
+    ASSERT_EQ(cresult.getRe() == 0.0, true);
+    ASSERT_EQ(cresult.getIm() == 0.0, true);
 }
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Arifmetic_Operation_With_Complex) {
