@@ -5,7 +5,6 @@
 #include "include/complex_number.h"
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Multiplication_Of_Conjugates) {
-    
     double re1 = 3.0, re2 = 3.0;
     double im1 = 5.0, im2 = -5.0;
     ComplexNumber num1(3.0, 5.0);
@@ -18,7 +17,6 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Multiplication_Of_Conjugates) {
 }
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Equals_Zero) {
-
     double re1 = 16.89475;
     double im1 = 57.01124;
     ComplexNumber num = ComplexNumber();
@@ -35,9 +33,8 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Arifmetic_Operation_With_Complex) {
     ComplexNumber number2(-2.0, 9.0);
     ComplexNumber number3(5.0, -6.0);
 
-    ComplexNumber dres(-78.0, 37.0);
-
     ComplexNumber cres = number1 * number2 - number3;
+  ComplexNumber dres(-78.0, 37.0);
 
     ASSERT_EQ(dres.getRe(), cres.getRe());
     ASSERT_EQ(cres.getIm(), cres.getIm());
