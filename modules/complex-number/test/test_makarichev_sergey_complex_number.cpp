@@ -12,8 +12,8 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Multiplication_Of_Conjugates) {
 
     ComplexNumber cmult = num1 * num2;
     double resutMult = re1 * re1 - im1 * im2;
-    ASSERT_DOUBLE_EQ(cmult.getRe(), resutMult);
-    ASSERT_DOUBLE_EQ(cmult.getIm(), 0.0);
+    ASSERT_DOUBLE_EQ(resutMult, cmult.getRe());
+    ASSERT_DOUBLE_EQ(0.0, cmult.getIm());
 }
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Equals_Zero) {
@@ -24,8 +24,8 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Equals_Zero) {
     num.setIm(im1);
 
     ComplexNumber cresult = num - num;
-    ASSERT_EQ(cresult.getRe() == 0.0, true);
-    ASSERT_EQ(cresult.getIm() == 0.0, true);
+    ASSERT_EQ(true, cresult.getRe() == 0.0);
+    ASSERT_EQ(true, cresult.getIm() == 0.0);
 }
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Arifmetic_Operation_With_Complex) {
@@ -37,5 +37,5 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Arifmetic_Operation_With_Complex) {
   ComplexNumber dres(-78.0, 37.0);
 
     ASSERT_EQ(dres.getRe(), cres.getRe());
-    ASSERT_EQ(cres.getIm(), cres.getIm());
+    ASSERT_EQ(dres.getIm(), cres.getIm());
 }
