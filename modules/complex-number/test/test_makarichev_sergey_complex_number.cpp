@@ -4,16 +4,13 @@
 
 #include "include/complex_number.h"
 
-TEST(Makarichev_Sergey_ComplexNumberTest, Multiplication_Of_Conjugates) {
-    double re1 = 3.0, re2 = 3.0;
-    double im1 = 5.0, im2 = -5.0;
-    ComplexNumber num1(3.0, 5.0);
-    ComplexNumber num2(3.0, -5.0);
+TEST(Makarichev_Sergey_ComplexNumberTest, Equals_One) {
+    double re = 3.0984, im = 9.5671;
+    ComplexNumber num(re, im);
 
-    ComplexNumber cmult = num1 * num2;
-    double resutMult = re1 * re1 - im1 * im2;
-    ASSERT_DOUBLE_EQ(resutMult, cmult.getRe());
-    ASSERT_DOUBLE_EQ(0.0, cmult.getIm());
+    ComplexNumber result = num / num;
+    ASSERT_DOUBLE_EQ(1.0, result.getRe());
+    ASSERT_DOUBLE_EQ(0.0, result.getIm());
 }
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Equals_Zero) {
@@ -24,8 +21,8 @@ TEST(Makarichev_Sergey_ComplexNumberTest, Equals_Zero) {
     num.setIm(im1);
 
     ComplexNumber cresult = num - num;
-    ASSERT_EQ(true, cresult.getRe() == 0.0);
-    ASSERT_EQ(true, cresult.getIm() == 0.0);
+    ASSERT_TRUE(cresult.getRe() == 0.0);
+    ASSERT_TRUE(cresult.getIm() == 0.0);
 }
 
 TEST(Makarichev_Sergey_ComplexNumberTest, Arifmetic_Operation_With_Complex) {
