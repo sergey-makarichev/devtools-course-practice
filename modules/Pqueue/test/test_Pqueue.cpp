@@ -15,16 +15,16 @@ TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Correct_Priority) {
   ASSERT_NO_THROW(PriorityQueueElem(2, 4.8));
 }
 
-TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Less) {
-  PriorityQueueElem e1 = { 3, 445 };
-  PriorityQueueElem e2 = { 4, 980 };
-  ASSERT_TRUE(e1 < e2);
-}
-
 TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_More) {
   PriorityQueueElem e1 = { 18, 2.67 };
   PriorityQueueElem e2 = { 3, 78.9 };
   ASSERT_TRUE(e1 > e2);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Less) {
+  PriorityQueueElem e1 = { 3, 445 };
+  PriorityQueueElem e2 = { 4, 980 };
+  ASSERT_TRUE(e1 < e2);
 }
 
 TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Equal) {
@@ -41,6 +41,10 @@ TEST(Makarichev_Pqueue, Test_PriorityQueue_Correct_Size) {
   ASSERT_NO_THROW(PQueue(12));
 }
 
+TEST(Makarichev_Pqueue, Test_PriorityQueue_Default_Constructor) {
+    ASSERT_NO_THROW(PQueue());
+}
+
 TEST(Makarichev_Pqueue, Test_PriorityQueue_Copy_Constructor) {
   PriorityQueueElem el1 = { 1, 2 }, el2 = { 3, 6 }, el3 = { 4, 8 };
   PQueue q1(3);
@@ -49,6 +53,11 @@ TEST(Makarichev_Pqueue, Test_PriorityQueue_Copy_Constructor) {
   q1.Push(el3);
   PQueue q2(q1);
   ASSERT_EQ(q1, q2);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueue_Copy_Constructor_Empty) {
+  PQueue q1(3);
+  ASSERT_NO_THROW(PQueue q2(q1));
 }
 
 TEST(Makarichev_Pqueue, Test_PriorityQueue_IsEmpty) {
@@ -107,4 +116,9 @@ TEST(Makarichev_Pqueue, Test_PriorityQueue_Unequall) {
   PQueue q1(1), q2(1);
   q1.Push(el1);
   ASSERT_TRUE(q1 != q2);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueue_Equal) {
+  PQueue q1(3), q2(1);
+  ASSERT_FALSE(q1 == q2);
 }
