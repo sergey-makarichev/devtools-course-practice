@@ -7,22 +7,12 @@
 struct PriorityQueueElem {
   int priority;
   float elem;
-  explicit PriorityQueueElem(int priority = 1, float elem = 1) {
-    if (priority < 0)
-      throw "wrong priority";
-    this->priority = priority;
-    this->elem = elem;
-  }
+  PriorityQueueElem();
+  PriorityQueueElem(int priority, float elem);
 
-  bool operator < (const PriorityQueueElem& e) const {
-      return priority < e.priority;
-  }
-  bool operator > (const PriorityQueueElem& e) const {
-    return priority > e.priority;
-  }
-  bool operator == (const PriorityQueueElem& e) const {
-    return priority == e.priority;
-  }
+  bool operator > (const PriorityQueueElem& e) const;
+  bool operator < (const PriorityQueueElem& e) const;
+  bool operator == (const PriorityQueueElem& e) const;
 };
 
 class PQueue {

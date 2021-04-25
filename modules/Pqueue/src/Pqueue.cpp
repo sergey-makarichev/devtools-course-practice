@@ -1,6 +1,27 @@
 // Copyright 2021 Makarychev Sergey
 #include "include/Pqueue.h"
 
+PriorityQueueElem::PriorityQueueElem() : priority(1), elem(1) {}
+
+PriorityQueueElem::PriorityQueueElem(int priority, float elem) {
+  if (priority < 0)
+      throw "wrong priority";
+  this->priority = priority;
+  this->elem = elem;
+}
+
+bool PriorityQueueElem::operator > (const PriorityQueueElem& e) const {
+  return priority > e.priority;
+}
+
+bool PriorityQueueElem::operator < (const PriorityQueueElem& e) const {
+  return priority < e.priority;
+}
+
+bool PriorityQueueElem::operator == (const PriorityQueueElem& e) const {
+  return priority == e.priority;
+}
+
 PQueue::PQueue(int size) {
   if (size <= 0)
     throw "wrong size";
