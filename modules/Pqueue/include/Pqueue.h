@@ -7,19 +7,18 @@
 struct PriorityQueueElem {
   int priority;
   float elem;
-  PriorityQueueElem() : priority(1), elem(1) { }
-  PriorityQueueElem(int priority, float elem) {
+  PriorityQueueElem(int priority = 1, float elem = 1) {
     if (priority < 0)
       throw "wrong priority";
     this->priority = priority;
     this->elem = elem;
   }
 
+  bool operator < (const PriorityQueueElem& e) const {
+      return priority < e.priority;
+  }
   bool operator > (const PriorityQueueElem& e) const {
     return priority > e.priority;
-  }
-  bool operator < (const PriorityQueueElem& e) const {
-    return priority < e.priority;
   }
   bool operator == (const PriorityQueueElem& e) const {
     return priority == e.priority;
