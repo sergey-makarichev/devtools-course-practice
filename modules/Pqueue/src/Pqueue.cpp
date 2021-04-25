@@ -39,11 +39,10 @@ void PQueue::Push(PriorityQueueElem q) {
     count++;
     return;
   }
-  int mid = 0;
   int i1 = 0;
   int i2 = count - 1;
   while (i1 <= i2) {
-    mid = (i1 + i2) / 2;
+    int mid = (i1 + i2) / 2;
     if (elems[mid] == q)
       i1 = i2 + 1;
     else if (elems[mid] < q)
