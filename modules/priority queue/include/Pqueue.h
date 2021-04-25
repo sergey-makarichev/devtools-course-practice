@@ -1,20 +1,19 @@
 // Copyright 2021 Makarychev Sergey
-#ifndef MODULES_PQUEUE_INCLUDE_PQUEUE_H_
-#define MODULES_PQUEUE_INCLUDE_PQUEUE_H_
+#ifndef MODULES_PRIORITY_QUEUE_INCLUDE_PQUEUE_H_
+#define MODULES_PRIORITY_QUEUE_INCLUDE_PQUEUE_H_
 
 #include <vector>
 
 struct PriorityQueueElem {
   int priority;
   float elem;
-  PriorityQueueElem() : priority(1), elem(1) {
-  };
+  PriorityQueueElem() : priority(1), elem(1) { }
   PriorityQueueElem(int priority, float elem) {
     if (priority < 0)
       throw "wrong priority";
     this->priority = priority;
     this->elem = elem;
-  };
+  }
 
   bool operator > (const PriorityQueueElem& e) const {
     return priority > e.priority;
@@ -44,4 +43,4 @@ class PQueue {
   bool operator != (const PQueue& pq) const;
 };
 
-#endif  // MODULES_PQUEUE_INCLUDE_PQUEUE_H_
+#endif  // MODULES_PRIORITY_QUEUE_INCLUDE_PQUEUE_H_
