@@ -8,7 +8,8 @@ TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Wrong_Priority) {
 }
 
 TEST(Makarichev_Pqueue, Test_Create_PriorityQueueElem) {
-  ASSERT_NO_THROW(PriorityQueueElem());
+  PriorityQueueElem el();
+  ASSERT_NO_THROW(el);
 }
 
 TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Correct_Priority) {
@@ -21,16 +22,34 @@ TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_More) {
   ASSERT_TRUE(e1 > e2);
 }
 
-TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Less) {
+TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Less_1) {
   PriorityQueueElem e1 = { 3, 445 };
   PriorityQueueElem e2 = { 4, 980 };
   ASSERT_TRUE(e1 < e2);
 }
 
-TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Equal) {
+TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Less_2) {
+  PriorityQueueElem e1 = { 9, 445 };
+  PriorityQueueElem e2 = { 4, 580.9 };
+  ASSERT_TRUE(e2 < e1);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Less_3) {
+  PriorityQueueElem e1 = { 12, 445 };
+  PriorityQueueElem e2 = { 42, 580.9 };
+  ASSERT_FALSE(e2 < e1);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Equal1) {
   PriorityQueueElem e1 = { 9, 231.5 };
   PriorityQueueElem e2 = { 9, 12.4 };
   ASSERT_TRUE(e1 == e2);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Operator_Equal2) {
+  PriorityQueueElem e1 = { 10, 231.5 };
+  PriorityQueueElem e2 = { 12, 231.5 };
+  ASSERT_FALSE(e1 == e2);
 }
 
 TEST(Makarichev_Pqueue, Test_PriorityQueue_Wrong_Size) {
