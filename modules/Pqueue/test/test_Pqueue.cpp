@@ -7,9 +7,19 @@ TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Wrong_Priority) {
   ASSERT_ANY_THROW(PriorityQueueElem(-1, 2));
 }
 
-TEST(Makarichev_Pqueue, Test_Create_PriorityQueueElem) {
-  PriorityQueueElem el();
+TEST(Makarichev_Pqueue, Test_Create_PriorityQueueElem1) {
+  PriorityQueueElem el = PriorityQueueElem();
   ASSERT_NO_THROW(el);
+}
+
+TEST(Makarichev_Pqueue, Test_Create_PriorityQueueElem2) {
+  PriorityQueueElem el = PriorityQueueElem();
+  ASSERT_EQ(1, el.priority);
+}
+
+TEST(Makarichev_Pqueue, Test_Create_PriorityQueueElem3) {
+  PriorityQueueElem el = PriorityQueueElem();
+  ASSERT_EQ(1.0f, el.elem);
 }
 
 TEST(Makarichev_Pqueue, Test_PriorityQueueElem_Correct_Priority) {
