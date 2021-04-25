@@ -1,6 +1,6 @@
 // Copyright 2021 Makarychev Sergey
-#ifndef MODULES_PRIORITY_QUEUE_INCLUDE_PQUEUE_H_
-#define MODULES_PRIORITY_QUEUE_INCLUDE_PQUEUE_H_
+#ifndef MODULES_PQUEUE_INCLUDE_PQUEUE_H_
+#define MODULES_PQUEUE_INCLUDE_PQUEUE_H_
 
 #include <vector>
 
@@ -43,4 +43,4 @@ class PQueue {
   bool operator != (const PQueue& pq) const;
 };
 
-#endif  // MODULES_PRIORITY_QUEUE_INCLUDE_PQUEUE_H_
+#endif  // MODULES_PQUEUE_INCLUDE_PQUEUE_H_
