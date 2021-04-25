@@ -7,7 +7,7 @@
 struct PriorityQueueElem {
   int priority;
   float elem;
-  PriorityQueueElem(int priority = 1, float elem = 1) {
+  explicit PriorityQueueElem(int priority = 1, float elem = 1) {
     if (priority < 0)
       throw "wrong priority";
     this->priority = priority;
