@@ -19,11 +19,10 @@ class PQueue {
  private:
   int size;
   int count;
-  PriorityQueueElem* elems;
+  std::vector<PriorityQueueElem> elems;
  public:
   explicit PQueue(int size = 10);
   PQueue(const PQueue& q);
-  ~PQueue();
   bool IsEmpty()const;
   bool IsFull()const;
   void Push(PriorityQueueElem q);

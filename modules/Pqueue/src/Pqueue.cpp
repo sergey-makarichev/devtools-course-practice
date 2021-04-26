@@ -26,22 +26,18 @@ PQueue::PQueue(int size) {
   if (size <= 0)
     throw "wrong size";
   this->size = size;
-  this->elems = new PriorityQueueElem[size];
+  this->elems.resize(size);
   this->count = 0;
 }
 
 PQueue::PQueue(const PQueue& q) {
   size = q.size;
   count = q.count;
-  this->elems = new PriorityQueueElem[q.size];
+  this->elems.resize(q.size);
   if (q.IsEmpty())
     return;
   for (int i = 0; i < q.count; i++)
     elems[i] = q.elems[i];
-}
-
-PQueue::~PQueue() {
-  delete[] elems;
 }
 
 bool PQueue::IsEmpty()const {
@@ -53,8 +49,10 @@ bool PQueue::IsFull()const {
 }
 
 void PQueue::Push(PriorityQueueElem q) {
-  if (IsFull())
-    throw "queue is full";
+    if (IsFull()) {
+        size += 5;
+        elems.resize(size);
+    }
   if (IsEmpty()) {
     elems[count] = q;
     count++;
