@@ -95,7 +95,22 @@ TEST(Makarichev_Pqueue, Test_PriorityQueue_Push_In_Full_PQueue) {
   ASSERT_NO_THROW(q1.Push(el3));
 }
 
-TEST(Makarichev_Pqueue, Test_PriorityQueue_Correct_Push) {
+TEST(Makarichev_Pqueue, Test_PriorityQueue_Correct_Push1) {
+    std::vector<PriorityQueueElem> arrEl1 { {1, 4}, {2, 3},
+    {3, 1}, {4, 10}, {5, 11} };
+    PQueue q1(arrEl1.size());
+    for (size_t i = 0; i < arrEl1.size(); i++)
+        q1.Push(arrEl1[i]);
+    q1.Push(PriorityQueueElem({ 3, 45 }));
+    std::vector<PriorityQueueElem> arrEl2 { {1, 4}, {2, 3},
+    {3, 1}, {3, 45}, {4, 10}, {5, 11} };
+    PQueue q2(arrEl2.size());
+    for (size_t i = 0; i < arrEl2.size(); i++)
+        q2.Push(arrEl2[i]);
+    ASSERT_TRUE(q1 == q2);
+}
+
+TEST(Makarichev_Pqueue, Test_PriorityQueue_Correct_Push2) {
   std::vector<PriorityQueueElem> arrEl1 { {9, 1}, {10, 1},
   {1, 1}, {3, 1}, {2, 1} };
   PQueue q1(arrEl1.size());

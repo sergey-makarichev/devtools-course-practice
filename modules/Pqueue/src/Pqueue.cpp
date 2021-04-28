@@ -3,6 +3,7 @@
 
 PriorityQueueElem::PriorityQueueElem() : priority(1), elem(1) {}
 
+
 PriorityQueueElem::PriorityQueueElem(int priority, float elem) {
   if (priority < 0)
       throw "wrong priority";
@@ -50,7 +51,7 @@ bool PQueue::IsFull()const {
 
 void PQueue::Push(PriorityQueueElem q) {
     if (IsFull()) {
-        size += 5;
+        size += 1;
         elems.resize(size);
     }
   if (IsEmpty()) {
@@ -60,19 +61,23 @@ void PQueue::Push(PriorityQueueElem q) {
   }
   int i1 = 0;
   int i2 = count - 1;
+  int flag = 0;
   while (i1 <= i2) {
     int mid = (i1 + i2) / 2;
-    if (elems[mid] == q)
-      i1 = i2 + 1;
-    else if (elems[mid] < q)
-      i1 = mid + 1;
-    else
-      i2 = mid - 1;
+    if (elems[mid] == q) {
+        i1 = i2 + 1;
+        flag = mid;
+    } else if (elems[mid] < q) {
+        i1 = mid + 1;
+        flag = i1;
+    } else {
+        i2 = mid - 1;
+    }
   }
 
-  for (int j = count; j > i1; j--)
+  for (int j = count; j > flag; j--)
     elems[j] = elems[j - 1];
-  elems[i1] = q;
+  elems[flag] = q;
   count++;
 }
 
