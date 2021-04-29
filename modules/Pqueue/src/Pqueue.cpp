@@ -3,7 +3,6 @@
 
 PriorityQueueElem::PriorityQueueElem() : priority(1), elem(1) {}
 
-
 PriorityQueueElem::PriorityQueueElem(int priority, float elem) {
   if (priority < 0)
       throw "wrong priority";
