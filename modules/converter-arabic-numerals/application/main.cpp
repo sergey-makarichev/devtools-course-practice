@@ -7,7 +7,7 @@
 
 int main(int argc, const char** argv) {
     RomaNumberApplication app;
-    std::string out = app(argc, argv);
+    const std::string out = app(argc, argv);
     printf("%s\n", out.c_str());
     return 0;
 }

@@ -1,14 +1,11 @@
 // Copyright 2021 Makarychev Sergey
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
-#include <string>
+
+#include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include <iostream>
+#include <string>
 #include "include/romanumber_application.h"
 #include "include/romanumber.h"
 
@@ -17,14 +14,14 @@ RomaNumberApplication::RomaNumberApplication() : message_("") {}
 void RomaNumberApplication::help(const char* appname, const char* message ) {
     message_ =
         std::string(message) +
-        "It is a Converter from Arab numbers to Rom numbers and back.\n\n" +
-        "Please provide arguments in the following format:\n\n" +
+        "It is a Converter from Arab numbers to Rom numbers and back.\n\n" \
+        "Please provide arguments in the following format:\n\n" \
 
-        "  $ " + appname + " <type of conversion> " +
-        "<your number to convert>\n\n" +
+        " $ " + appname + " <type of conversion> " \
+        "<your number to convert>\n\n" \
 
-        "Where your number to convert is integer or string argument, \n"
-        + "type of conversion is integer number, where \n" +
+        "Where your number to convert is integer or string argument, \n" \
+         "type of conversion is integer number, where \n" \
         "1 - from Arabic to Roman \n2 - from Roman to Arabic ";
 }
 
