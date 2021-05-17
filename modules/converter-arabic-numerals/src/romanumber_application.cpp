@@ -12,7 +12,7 @@
 #include "include/romanumber_application.h"
 #include "include/romanumber.h"
 
-RomaNumberApplication::RomaNumberApplication() : message_("") {};
+RomaNumberApplication::RomaNumberApplication() : message_("") {}
 
 void RomaNumberApplication::help(const char* appname, const char* message ) {
     message_ =
