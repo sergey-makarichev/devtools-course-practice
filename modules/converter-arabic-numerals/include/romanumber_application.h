@@ -6,14 +6,13 @@
 #include <string>
 
 class RomaNumberApplication {
- private:
-  std::string message_;
-  void help(const char* appname, const char* message = "");
-  bool validateNumberOfArguments(int argc, const char** argv);
-  int parseInt(const char* arg);
  public:
   RomaNumberApplication();
   std::string operator()(int argc, const char** argv);
+ private:
+  void help(const char* appname, const char* message = "");
+  bool validateNumberOfArguments(int argc, const char** argv);
+  std::string message_;
 };
 
 #endif  // MODULES_CONVERTER_ARABIC_NUMERALS_INCLUDE_ROMANUMBER_APPLICATION_H_

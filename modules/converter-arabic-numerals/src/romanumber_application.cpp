@@ -33,14 +33,14 @@ const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc > 2) {
+    } else if (argc != 3) {
         help(argv[0], "ERROR: Should be 2 arguments.\n\n");
         return false;
     }
     return true;
 }
 
-int RomaNumberApplication::parseInt(const char* arg) {
+int parseInt(const char* arg) {
     int value = std::stoi(arg);
     if (value != 1 && value != 2) {
         throw std::string("Error: Wrong number format.\n\n");
@@ -56,24 +56,23 @@ std::string RomaNumberApplication::operator()(int argc, const char** argv) {
     RomaNumber num;
     std::ostringstream stream;
     int change;
+    argv[0];
     try {
-        change = parseInt(argv[0]);
+        change = parseInt(argv[1]);
     } catch(const std::string& str) {
         return str;
     }
     try {
         if (change == 1) {
-            num.arabToRoma(std::stoi(argv[1]));
+            num.arabToRoma(std::stoi(argv[2]));
             stream << "Arabic to Roman = " << num.getRoma();
         } else if (change == 2) {
-            num.romaToArab(argv[1]);
+            num.romaToArab(argv[2]);
             stream << "Roman to Arabic = " << num.getArabic();
         }
     } catch(const std::string& str) {
         return str;
     }
-
     message_ = stream.str();
-
     return message_;
 }
