@@ -56,7 +56,6 @@ std::string RomaNumberApplication::operator()(int argc, const char** argv) {
     RomaNumber num;
     std::ostringstream stream;
     int change;
-    argv[0];
     try {
         change = parseInt(argv[1]);
     } catch(const std::string& str) {
